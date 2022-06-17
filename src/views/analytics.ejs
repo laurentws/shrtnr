@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div class="grid place-items-center h-screen bg-gradient-to-r from-orange-400 to-blue-500">
+
+    <table class="text-sm text-left text-gray-500 dark:text-gray-400 shadow-md">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+            <th scope="col" class="px-6 py-3">Original</th>
+            <th scope="col" class="px-6 py-3">Short</th>
+            <th scope="col" class="px-6 py-3">Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% data.forEach(function(url) { %>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td class="px-6 py-4"><%= url.originalUrl %></td>
+                <td class="px-6 py-4"><a
+                            href="http://localhost:3000/api/shorturl/<%= url.shortUrl %>" target="_blank"><%= url.shortUrl %></a></td>
+                <td class="px-6 py-4"><%= url.nbClicks %></td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
